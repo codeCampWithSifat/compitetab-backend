@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 // use all the routes
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
-app.use("/api/carts", cartRoutes);
+app.use("/api/cart", cartRoutes);
 
 app.listen(port, () => {
   console.log(`Running On Port ${port} Successfully`);

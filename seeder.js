@@ -3,6 +3,7 @@ import "dotenv/config";
 import Product from "./models/ProductModel.js";
 import User from "./models/User.js";
 import products from "../rabbit-assets/data/products.js";
+import Cart from "./models/CartModel.js";
 
 mongoose.connect(process.env.MONGO_URL);
 
@@ -11,6 +12,7 @@ const seedData = async () => {
     // clear existing data
     await Product.deleteMany();
     await User.deleteMany();
+    await Cart.deleteMany();
 
     // Create a default admin
     const createuser = await User.create({
