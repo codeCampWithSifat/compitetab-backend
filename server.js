@@ -5,6 +5,7 @@ import connectDB from "./config/DB.js";
 import userRoutes from "./routes/UserRoutes.js";
 import productRoutes from "./routes/ProductRoutes.js";
 import cartRoutes from "./routes/CartRoutes.js";
+import checkoutRoutes from "./routes/CheckoutRoutes.js";
 
 const app = express();
 const port = process.env.PORT;
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
+app.use("/api/checkout", checkoutRoutes);
 
 app.listen(port, () => {
   console.log(`Running On Port ${port} Successfully`);
