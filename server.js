@@ -8,6 +8,10 @@ import cartRoutes from "./routes/CartRoutes.js";
 import checkoutRoutes from "./routes/CheckoutRoutes.js";
 import orderRoutes from "./routes/OrderRoutes.js";
 import uploadRoutes from "./routes/UploadRoutes.js";
+import subscibeRoutes from "./routes/SubscriberRoutes.js";
+import adminRoutes from "./routes/AdminRoutes.js";
+import productAdminRoutes from "./routes/ProductAdminRoutes.js";
+import adminOrderRoutes from "./routes/AdminOrderRoutes.js";
 
 const app = express();
 const port = process.env.PORT;
@@ -30,6 +34,10 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/checkout", checkoutRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/upload", uploadRoutes);
+app.use("/api/subscribe", subscibeRoutes);
+app.use("/api/admin/users", adminRoutes);
+app.use("/api/admin/products", productAdminRoutes);
+app.use("/api/admin/orders", adminOrderRoutes);
 
 app.listen(port, () => {
   console.log(`Running On Port ${port} Successfully`);
