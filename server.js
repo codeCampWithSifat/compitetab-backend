@@ -6,6 +6,8 @@ import userRoutes from "./routes/UserRoutes.js";
 import productRoutes from "./routes/ProductRoutes.js";
 import cartRoutes from "./routes/CartRoutes.js";
 import checkoutRoutes from "./routes/CheckoutRoutes.js";
+import orderRoutes from "./routes/OrderRoutes.js";
+import uploadRoutes from "./routes/UploadRoutes.js";
 
 const app = express();
 const port = process.env.PORT;
@@ -26,6 +28,8 @@ app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/checkout", checkoutRoutes);
+app.use("/api/order", orderRoutes);
+app.use("/api/upload", uploadRoutes);
 
 app.listen(port, () => {
   console.log(`Running On Port ${port} Successfully`);
