@@ -34,7 +34,7 @@ const createCart = async (req, res) => {
       );
       if (productIndex > -1) {
         // If The Product Already Exists , update the quantity
-        cart.products[productIndex].qunatity += quantity;
+        cart.products[productIndex].quantity += quantity;
       } else {
         // add new product to the cart
         cart.products.push({
@@ -100,7 +100,7 @@ const updateCartItem = async (req, res) => {
     );
     if (productIndex > -1) {
       if (quantity > 0) {
-        cart.products[productIndex].qunatity = quantity;
+        cart.products[productIndex].quantity = quantity;
       } else {
         cart.products.splice(productIndex, 1); // remove product if quantity is 0
       }
@@ -137,7 +137,7 @@ const deleteCartItem = async (req, res) => {
     if (productIndex > -1) {
       cart.products.splice(productIndex, 1);
       cart.totalPrice = cart.products.reduce(
-        (acc, item) => acc + item.price * item.qunatity,
+        (acc, item) => acc + item.price * item.quantity,
         0
       );
       await cart.save();
@@ -196,7 +196,7 @@ const mergeItem = async (req, res) => {
           );
 
           if (productIndex > -1) {
-            userCart.products[productIndex].qunatity += guestItem.qunatity;
+            userCart.products[productIndex].quantity += guestItem.quantity;
           } else {
             // Otherwise add the guest item to the cart
             userCart.products.push(guestItem);
@@ -204,7 +204,7 @@ const mergeItem = async (req, res) => {
         });
 
         userCart.totalPrice = userCart.products.reduce(
-          (acc, item) => acc + item.price * item.qunatity,
+          (acc, item) => acc + item.price * item.quantity,
           0
         );
 

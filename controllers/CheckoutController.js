@@ -22,7 +22,7 @@ const createCheckOut = async (req, res) => {
       paymentStatus: "Pending",
       isPaid: false,
     });
-    console.log("New Checkout", req.user._id);
+    // console.log("New Checkout", req.user._id);
     res.status(201).json(newCheckout);
   } catch (error) {
     console.error("Error Creating Checkout Session", error);
