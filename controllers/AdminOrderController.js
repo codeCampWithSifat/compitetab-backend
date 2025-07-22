@@ -2,7 +2,7 @@ import Order from "../models/Order.js";
 
 const getAllOrdersForAdmin = async (req, res) => {
   try {
-    const orders = await Order.find({}).populate("user", "name, email");
+    const orders = await Order.find({}).populate("user", "name email");
 
     res.json(orders);
   } catch (error) {
