@@ -45,11 +45,11 @@ const loginUser = async (req, res) => {
   try {
     let user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "Invalid email/password" });
+      return res.status(400).json({ message: "Invalid User" });
     }
     const isMatch = await user.matchPassword(password);
     if (!isMatch) {
-      return res.status(400).json({ message: "Invalid email/password" });
+      return res.status(400).json({ message: "Invalid Password" });
     }
 
     const payload = { user: { id: user._id, role: user.role } };
